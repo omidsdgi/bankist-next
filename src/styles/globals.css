@@ -8,6 +8,9 @@
     }
     body {
         @apply antialiased;
+        color: #444;
+        background-color: #f3f3f3;
+        padding: 20px;
     }
     *,*::after,*::before{
         margin: 0;
