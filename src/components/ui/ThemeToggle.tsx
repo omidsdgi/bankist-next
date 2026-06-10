@@ -1,8 +1,11 @@
+import useDarkMode from "@/components/context/ThemeContext";
+
 const ThemeToggle = () => {
+const{isDark,toggleTheme}=useDarkMode()
     return (
-        <div>
-            ThemeToggle
-        </div>
+        <button className='text-xl transition hover:scale-110' onClick={toggleTheme}>
+            {isDark ? '☀️' : '🌙'}
+        </button>
     );
 };
 
