@@ -11,8 +11,8 @@ const Header = () => {
                 <input type='text' placeholder='user' className='login--input '/>
                 <input type="password" placeholder='PIN' maxLength={4} className='login--input '/>
                 <button className='border-none bg-transparent text-xl  mr-3 cursor-pointer transition-all duration-300 hover:outline-none hover:text-gray-500 focus:outline-none focus:text-gray-500'> &rarr;</button>
-                <ThemeToggle />
             </form>
+                <ThemeToggle />
         </nav>
     );
 };
