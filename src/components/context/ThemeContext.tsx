@@ -1,47 +1,20 @@
-import {useEffect, useState} from "react";
-const themes = {
-    light: 'light',
-    dark: 'dark',
-} as const;
+import { useEffect } from 'react';
+import useLocalStorage from "@/components/hooks/useLocalStorage";
 
-type Theme = keyof typeof themes;
+type Theme = 'light' | 'dark' ;
 
-export function useDarkMode() {
- const [theme, setTheme] = useState<Theme>(themes.light);
-    const [mounted, setMounted] = useState(false);
+export function useTheme() {
+    const [theme, setTheme] = useLocalStorage<Theme>( 'light', 'dark' )
 
     useEffect(() => {
-        const storedTheme = localStorage.getItem('theme') as Theme | null;
+        document.documentElement.classList.toggle('dark' , theme === 'dark' );
+    }, [theme]);
 
-        if (storedTheme && Object.values(themes).includes(storedTheme)) {
-            setTheme(storedTheme);
-        }
-
-        setMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (!mounted) return;
-
-        const isDark = theme === themes.dark;
-
-        document.documentElement.classList.toggle('dark', isDark);
-
-        localStorage.setItem('theme', theme);
-    }, [theme, mounted]);
-
-    const toggleTheme = () => {
-        setTheme(prev =>
-            prev === themes.light ? themes.dark : themes.light
-        );
-    };
+    function toggleTheme    () {
+        setTheme(prev=> prev === 'dark' ? 'light' : 'dark');
+    }
 
     return {
-        theme,
-        isDark: theme === themes.dark,
-        toggleTheme,
-        mounted,
+        theme,setTheme, toggleTheme,
     };
 }
-
-export default useDarkMode;
