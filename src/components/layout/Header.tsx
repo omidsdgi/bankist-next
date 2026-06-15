@@ -3,9 +3,9 @@ import {IconButton, ThemeToggle} from "@/components";
 
 const Header = () => {
     return (
-        <header className="flex flex-col-2 gap-4 flex-wrap items-center justify-between md:flex-row  px-4 md:px-8 py-6">
+        <header className="flex flex-col-2 gap-4 flex-wrap items-center justify-between md:flex-row  px-4  py-1">
 
-            <h1 className='text-2xl font-medium'>Log in to get started</h1>
+            <h1 className='text-xl font-medium'>Log in to get started</h1>
             <Image src='/logo.png' alt="Bankist logo" width={52.5} height={52.5}/>
             <form className='flex items-center gap-4'>
                 <input
