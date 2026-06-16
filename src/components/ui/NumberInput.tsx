@@ -1,8 +1,17 @@
 import React from "react";
 
-const NumberInput = ({children}:{children:React.ReactNode}) => {
+interface NumberProps {
+    type?: number ;
+    placeholder?: string ;
+    className?: string ;
+}
+
+const NumberInput = ({className="", placeholder}:NumberProps) => {
     return (
-        <input className={`w-full text-sm text-center rounded-lg px-4 py-2 outline-none focus:border-gray-300 transition-all ${children}`}   />
+        <input
+            type='number'
+            placeholder={placeholder}
+            className={`w-full text-xl text-center rounded-lg px-4 py-1 outline-none focus:border-gray-300 transition-all ${className}`}   />
     );
 };
 
