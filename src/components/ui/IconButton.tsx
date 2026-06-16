@@ -1,9 +1,15 @@
 import React from "react";
 
-const IconButton = ({children}:{children:React.ReactNode}) => {
+interface ButtonProps {
+    type?: "submit" | "button";
+}
+
+const IconButton = ({type='submit'}:ButtonProps) => {
     return (
-        <button type='submit' className='border-none bg-transparent text-2xl cursor-pointer transition-all duration-300 hover:outline-none hover:text-gray-500 focus:outline-none focus:text-gray-500'>
-            {children}
+        <button
+            type={type}
+            className='text-2xl border-none bg-transparent cursor-pointer transition-all duration-300 hover:outline-none hover:text-gray-700 focus:outline-none focus:text-gray-700'>
+            &rarr;
         </button>
     );
 };
