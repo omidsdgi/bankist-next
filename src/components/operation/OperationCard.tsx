@@ -7,7 +7,7 @@ interface OperationCardProps {
 }
 
 const variantStyles = {
-transfer: 'bg-gradient-to-tl from-amber-500 to-yellow-400 ',
+    transfer: 'bg-gradient-to-tl from-amber-500 to-yellow-400 ',
     loan: 'bg-gradient-to-tl from-emerald-500 to-lime-400 ',
     close: 'bg-gradient-to-tl from-rose-500 to-red-400 ',
 }
