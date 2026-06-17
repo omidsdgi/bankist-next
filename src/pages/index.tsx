@@ -1,4 +1,4 @@
-import {Footer, Header, MovementList, OperationPanel, SignUp, Testimonials} from "@/components";
+import {Header, MovementList, OperationPanel, Summary,} from "@/components";
 import Balance from "@/components/sections/Balance";
 
 
@@ -13,7 +13,7 @@ export default function Home() {
                 <OperationPanel/>
                 </div>
             </main>
-            <Footer/>
+            <Summary/>
         </>
     )
 }
