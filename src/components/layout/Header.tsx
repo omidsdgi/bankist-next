@@ -7,7 +7,7 @@ const Header = () => {
 
             <h1 className='text-xl font-medium'>Log in to get started</h1>
             <Image src='/logo.png' alt="Bankist logo" width={52.5} height={52.5}/>
-            <form className='flex items-center gap-4'>
+            <form className='grid grid-cols-[2fr_2fr_1fr] gap-4'>
                 <input
                     type='text'
                     placeholder='user'
