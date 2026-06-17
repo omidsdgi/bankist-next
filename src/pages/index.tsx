@@ -12,8 +12,8 @@ export default function Home() {
                 <MovementList />
                 <OperationPanel/>
                 </div>
-            </main>
             <Summary/>
+            </main>
         </>
     )
 }
