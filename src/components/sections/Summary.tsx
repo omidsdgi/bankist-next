@@ -1,4 +1,4 @@
-const Footer = () => {
+const Summary = () => {
     return (
         <footer className="mt-6 flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center gap-8">
@@ -38,4 +38,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default Summary;
