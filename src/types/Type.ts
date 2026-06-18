@@ -24,3 +24,7 @@ export interface SummaryType{
     totalOut: number;
     interest: number;
 }
+
+export interface HeaderProps {
+   setCurrentAccount:(account:Account |null) => void;
+}
