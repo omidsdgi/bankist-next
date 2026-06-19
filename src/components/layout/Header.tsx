@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, {useState} from "react";
-import {accounts} from "@/data/mockData";
+import {createUsernames} from "@/utility/createUsernames";
 import {IconButton, ThemeToggle} from "@/components";
 import { HeaderProps} from "@/types/Type";
 
@@ -10,8 +10,8 @@ const Header = ({setCurrentAccount}:HeaderProps) => {
 
     const handleLogin=(e:React.MouseEvent)=> {
         e.preventDefault()
-        const account = accounts.find(
-            (acc) => acc.owner === userName && acc.pin === Number(pin)
+        const account = createUsernames.find(
+            (acc) => acc.username === userName && acc.pin === Number(pin)
         )
         if (account) {
             setCurrentAccount(account)
