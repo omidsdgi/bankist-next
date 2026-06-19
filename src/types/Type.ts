@@ -11,6 +11,7 @@ export interface Account {
     movementsDates: MovementDate[];
     currency: string;
     locale:string;
+    username?: string
 }
 
 export interface Movement{
@@ -26,5 +27,6 @@ export interface SummaryType{
 }
 
 export interface HeaderProps {
+    currentAccount: Account | null;
    setCurrentAccount:(account:Account |null) => void;
 }
