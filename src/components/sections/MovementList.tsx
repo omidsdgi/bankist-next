@@ -3,7 +3,7 @@ import {Account} from "@/types/Type";
 
 const MovementList=({account}: {account: Account })=>{
     return (
-        <section className="bg-white rounded-2xl shadow">
+        <section className="max-h-[500px] overflow-y-auto bg-white rounded-2xl shadow">
             <ul className='divide-y divide-gray-500'>
                 {account.movements.map((movement, index) => {
                     return <MovementItem
