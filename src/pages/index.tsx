@@ -8,7 +8,7 @@ export default function Home() {
     const[currentAccount, setCurrentAccount]=useState<Account|null>(null)
     return (
         <>
-            <Header setCurrentAccount={setCurrentAccount}/>
+            <Header currentAccount={currentAccount} setCurrentAccount={setCurrentAccount}/>
             <main className= "max-w-5xl mx-auto mt-12 opacity-100 ">
                 {currentAccount &&(
                     <>
