@@ -6,7 +6,7 @@ interface MovementItemProps {
 
 const MovementItem = ({amount, date}:MovementItemProps) => {
     return (
-        <li className='flex items-center justify-between gap-4 px-8 py-4 border-b border-gray-100'>
+        <li className='flex items-center justify-between gap-4 px-8 py-4 border-b border-gray-100 even:bg-gray-300'>
             <span
                 className={`text-xs uppercase font-medium text-white px-3 py-1 rounded-full
              ${amount>0 ? "bg-gradient-to-tl from-emerald-500 to-lime-400" :"bg-gradient-to-tl from-rose-500 to-red-400 "} `}
