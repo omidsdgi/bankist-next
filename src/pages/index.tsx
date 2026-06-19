@@ -14,7 +14,7 @@ export default function Home() {
                     <>
                 <Balance/>
                 <div className=' grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8'>
-                <MovementList />
+                <MovementList account={currentAccount} />
                 <OperationPanel/>
                 </div>
             <Summary/>
