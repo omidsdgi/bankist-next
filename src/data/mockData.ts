@@ -1,9 +1,10 @@
- const account1 = {
+import {Account} from "@/types/Type";
+
+const account1:Account = {
     owner: 'Jonas Schmedtmann',
     movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
     interestRate: 1.2, // %
     pin: 1111,
-
     movementsDates: [
         '2025-11-18T21:31:17.178Z',
         '2025-12-23T07:42:02.383Z',
@@ -18,7 +19,7 @@
     locale: 'pt-PT', // de-DE
 };
 
-const account2 = {
+const account2:Account = {
     owner: 'Jessica Davis',
     movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
     interestRate: 1.5,
@@ -38,4 +39,4 @@ const account2 = {
     locale: 'en-US',
 };
 
-export  const accounts = [account1, account2];
+export  const accounts:Account[] = [account1, account2];
