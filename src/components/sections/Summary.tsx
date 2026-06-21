@@ -1,7 +1,12 @@
-const Summary = () => {
+interface SummaryProps {
+    isSorted:boolean;
+    setIsSorted:(isSorted:boolean) => void;
+}
+
+const Summary = ({isSorted, setIsSorted}:SummaryProps) => {
     return (
-        <footer className="mt-6 flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
-            <div className="flex items-center gap-8">
+        <footer className="grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8 text-xs md:text-sm text-gray-600 dark:text-gray-400">
+            <div className="flex items-center  justify-between flex-1 ">
                 <div>
                     <span className="mr-2 uppercase">In</span>
                     <span className="font-medium text-green-500">
@@ -23,8 +28,10 @@ const Summary = () => {
       </span>
                 </div>
 
-                <button className="uppercase transition hover:text-black dark:hover:text-white">
-                    Sort ↓
+                <button
+                    onClick={()=> setIsSorted(!isSorted)}
+                    className="uppercase transition hover:text-blue-500 ">
+                    Sort {isSorted ? '↑' : '↓'}
                 </button>
             </div>
 
