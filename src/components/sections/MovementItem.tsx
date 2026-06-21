@@ -1,6 +1,6 @@
 interface MovementItemProps {
     index:number;
-    amount:number;
+    amount:number
     date:string;
 }
 
