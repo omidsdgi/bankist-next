@@ -1,16 +1,22 @@
+import {Account} from "@/types/Type";
+
 interface SummaryProps {
     isSorted:boolean;
     setIsSorted:(isSorted:boolean) => void;
+    account:Account
 }
 
-const Summary = ({isSorted, setIsSorted}:SummaryProps) => {
+const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
+    const totalIn=account.movements
+        .filter(movement => movement>0)
+        .reduce((acc, mov) => acc + mov, 0);
     return (
         <footer className="grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8 text-xs md:text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center  justify-between flex-1 ">
                 <div>
                     <span className="mr-2 uppercase">In</span>
                     <span className="font-medium text-green-500">
-        27035.20€
+    {totalIn}€
       </span>
                 </div>
 

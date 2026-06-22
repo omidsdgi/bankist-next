@@ -23,7 +23,7 @@ export default function Home() {
                             <MovementList move={displayMovements} account={currentAccount} />
                             <OperationPanel/>
                         </div>
-                        <Summary isSorted={isSorted} setIsSorted={setIsSorted} />
+                        <Summary isSorted={isSorted} setIsSorted={setIsSorted}  account={currentAccount} />
                     </>
                 )}
             </main>
