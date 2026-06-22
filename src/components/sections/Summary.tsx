@@ -9,7 +9,13 @@ interface SummaryProps {
 const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
     const totalIn=account.movements
         .filter(movement => movement>0)
-        .reduce((acc, mov) => acc + mov, 0);
+        .reduce((acc, mov) => acc + mov, 0)
+        .toFixed(2);
+
+    const totalOut=account.movements
+        .filter(movement => movement<0)
+        .reduce((acc, mov) => acc + mov, 0)
+        .toFixed(2)
     return (
         <footer className="grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8 text-xs md:text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center  justify-between flex-1 ">
@@ -23,7 +29,7 @@ const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
                 <div>
                     <span className="mr-2 uppercase">Out</span>
                     <span className="font-medium text-red-500">
-        1082.61€
+        {totalOut}€
       </span>
                 </div>
 
