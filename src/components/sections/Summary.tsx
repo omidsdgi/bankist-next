@@ -5,8 +5,15 @@ interface SummaryProps {
     setIsSorted:(isSorted:boolean) => void;
     account:Account
 }
+    const formatCur=function (value:number, locale:string, currency:string){
+        return new Intl.NumberFormat(locale, {
+            style: "currency",
+            currency: currency
+        }).format(value);
+    }
 
 const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
+
     const totalIn=account.movements
         .filter(movement => movement>0)
         .reduce((acc, mov) => acc + mov, 0)
@@ -31,21 +38,21 @@ const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
                 <div>
                     <span className="mr-2 uppercase">In</span>
                     <span className="font-medium text-green-500">
-    {totalIn}€
+    {formatCur(+totalIn, account.locale, account.currency)}
       </span>
                 </div>
 
                 <div>
                     <span className="mr-2 uppercase">Out</span>
                     <span className="font-medium text-red-500">
-        {totalOut}€
+        {formatCur(Math.abs(+totalOut), account.locale, account.currency)}
       </span>
                 </div>
 
                 <div>
                     <span className="mr-2 uppercase">Interest</span>
                     <span className="font-medium text-green-500">
-    {interest}€
+    {formatCur(+interest, account.locale, account.currency)}
       </span>
                 </div>
 
