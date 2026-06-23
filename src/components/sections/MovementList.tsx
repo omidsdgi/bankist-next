@@ -16,6 +16,8 @@ const MovementList=({move, account}: MovementListProps)=>{
                         amount={movement}
                         index={index}
                         date={account.movementsDates[index]}
+                        locale={account.locale}
+                        currency={account.currency}
                     />
                 })}
             </ul>

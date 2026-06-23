@@ -1,10 +1,14 @@
+import {formatCur} from "@/hook/UseAccountSummary";
+
 interface MovementItemProps {
     index:number;
     amount:number
     date:string;
+    locale:string;
+    currency:string;
 }
 
-const MovementItem = ({amount, date}:MovementItemProps) => {
+const MovementItem = ({amount, date, locale, currency}:MovementItemProps) => {
     return (
         <li className='flex items-center justify-between gap-4 px-8 py-4 border-b border-gray-100 even:bg-gray-300'>
             <span
@@ -14,7 +18,7 @@ const MovementItem = ({amount, date}:MovementItemProps) => {
                 {amount>0 ? 'deposit' : "withdrawal"}
             </span>
             <span className='text-xs uppercase font-medium text-gray-500'>{date}</span>
-            <span className='text-lg ml-auto dark:text-black'>{amount}</span>
+            <span className='text-lg ml-auto dark:text-black'>{formatCur(amount,locale, currency)}</span>
         </li>
     );
 };
