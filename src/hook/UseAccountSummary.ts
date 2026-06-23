@@ -1,7 +1,7 @@
 import {useMemo} from "react";
 import {Account} from "@/types/Type";
 
-const formatCur=  (value:number, locale: string, currency:string):string=>
+export const formatCur=  (value:number, locale: string, currency:string):string=>
     new Intl.NumberFormat(locale, {
         style: 'currency',
         currency: currency,

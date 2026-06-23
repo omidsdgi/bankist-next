@@ -18,7 +18,7 @@ export default function Home() {
             <main className= "max-w-5xl mx-auto mt-12 opacity-100 ">
                 {currentAccount &&(
                     <>
-                        <Balance/>
+                        <Balance account={currentAccount} />
                         <div className=' grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8'>
                             <MovementList move={displayMovements} account={currentAccount} />
                             <OperationPanel/>
