@@ -16,6 +16,15 @@ const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
         .filter(movement => movement<0)
         .reduce((acc, mov) => acc + mov, 0)
         .toFixed(2)
+
+
+    const interest=account.movements
+        .filter(move => move>0)
+            .map(deposit =>(deposit* account.interestRate)/100)
+            .filter(int=>int>1)
+            .reduce((acc, int) => acc + int, 0)
+        .toFixed(2)
+
     return (
         <footer className="grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8 text-xs md:text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center  justify-between flex-1 ">
@@ -36,7 +45,7 @@ const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
                 <div>
                     <span className="mr-2 uppercase">Interest</span>
                     <span className="font-medium text-green-500">
-        323.46€
+    {interest}€
       </span>
                 </div>
 
