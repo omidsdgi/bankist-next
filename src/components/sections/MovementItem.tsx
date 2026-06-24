@@ -1,4 +1,5 @@
 import {formatCur} from "@/hook/UseAccountSummary";
+import {formatMovementDate} from "@/hook/UseDateCalculation";
 
 interface MovementItemProps {
     index:number;
@@ -17,7 +18,7 @@ const MovementItem = ({amount, date, locale, currency}:MovementItemProps) => {
             >
                 {amount>0 ? 'deposit' : "withdrawal"}
             </span>
-            <span className='text-xs uppercase font-medium text-gray-500'>{date}</span>
+            <span className='text-xs uppercase font-medium text-gray-500'>{formatMovementDate(date)}</span>
             <span className='text-lg ml-auto dark:text-black'>{formatCur(amount,locale, currency)}</span>
         </li>
     );
