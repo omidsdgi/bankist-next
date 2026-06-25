@@ -13,7 +13,7 @@ interface AccountSummaryProps {
     interest:string
 }
 
-export const useAccountSummary = (account:Account):AccountSummaryProps => {
+export const accountSummaryUtils = (account:Account):AccountSummaryProps => {
     const totalIn=useMemo(() => {
         const raw= account.movements
             .filter((mov)=> mov>0)
