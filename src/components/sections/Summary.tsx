@@ -1,5 +1,5 @@
 import {Account} from "@/types/Type";
-import {useAccountSummary} from "@/hook/UseAccountSummary";
+import {accountSummaryUtils} from "@/utility/lib/AccountSummaryUtils";
 
 interface SummaryProps {
     isSorted:boolean;
@@ -8,7 +8,7 @@ interface SummaryProps {
 }
 
 const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
-    const {totalIn, totalOut, interest}=useAccountSummary(account)
+    const {totalIn, totalOut, interest}=accountSummaryUtils(account)
 
         return (
         <footer className="grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8 text-xs md:text-sm text-gray-600 dark:text-gray-400">

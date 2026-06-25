@@ -1,6 +1,6 @@
-import {formatCur} from "@/hook/UseAccountSummary";
+import {formatCur} from "@/utility/lib/AccountSummaryUtils";
 import {Account} from "@/types/Type";
-import {formatDateTime} from "@/hook/UseDateCalculation";
+import {formatDateTime} from "@/utility/lib/DateUtils";
 
 const Balance = ({account}: { account:Account })  => {
     const balance=account.movements.reduce((acc,mov)=> acc + mov ,0)
