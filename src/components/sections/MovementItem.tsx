@@ -1,5 +1,5 @@
-import {formatCur} from "@/utility/lib/accountSummaryUtils";
 import {formatMovementDate} from "@/utility/lib/DateUtils";
+import {formatCur} from "@/utility/lib/AccountSummaryUtils";
 
 interface MovementItemProps {
     index:number;
