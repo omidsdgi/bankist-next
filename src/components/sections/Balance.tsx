@@ -2,8 +2,12 @@ import {formatCur} from "@/utility/lib/AccountSummaryUtils";
 import {Account} from "@/types/Type";
 import {formatDateTime} from "@/utility/lib/DateUtils";
 
-const Balance = ({account}: { account:Account })  => {
-    const balance=account.movements.reduce((acc,mov)=> acc + mov ,0)
+interface BalanceProps {
+   account:Account;
+   balance: number;
+}
+const Balance = ({account, balance}: BalanceProps)  => {
+
     return (
         <section className="flex items-end justify-between gap-4 ">
             <div className='flex flex-col'>

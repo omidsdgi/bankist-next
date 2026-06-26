@@ -1,7 +1,6 @@
 import {IconButton, NumberInput, OperationCard, TextInput} from "@/components";
 import React from "react";
 import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
-import {accounts} from "@/data/mockData";
 
 interface TransferFormData {
     receiverUsername: string;
