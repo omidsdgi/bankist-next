@@ -1,11 +1,27 @@
 import {IconButton, NumberInput, OperationCard, TextInput} from "@/components";
+import React from "react";
 
-const TransferForm = () => {
+interface TransferFormData {
+    receiverUsername: string;
+    setReceiverUsername: React.Dispatch<React.SetStateAction<string>>;
+    amount: string;
+    setAmount: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const TransferForm = ({receiverUsername, setReceiverUsername, amount, setAmount}:TransferFormData) => {
     return (
         <OperationCard title='transfer money' variant='transfer'>
             <form className='grid grid-cols-[2.5fr_2.5fr_1fr] gap-2'>
-                <TextInput className='bg-yellow-300/60' placeholder='User'/>
-                <NumberInput className='bg-yellow-300/60' placeholder='Amount'/>
+                <TextInput className='bg-yellow-300/60'
+                           placeholder='User'
+                           value={receiverUsername}
+                           onChange={(e) => setReceiverUsername(e.target.value)}
+                />
+                <NumberInput className='bg-yellow-300/60'
+                             placeholder='Amount'
+                             value={amount}
+                             onChange={(e) => setAmount(e.target.value)}
+                />
                 <IconButton />
 
                 <label className='text-sm text-center'>Transfer to</label>
