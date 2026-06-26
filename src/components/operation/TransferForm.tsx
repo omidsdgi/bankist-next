@@ -9,9 +9,16 @@ interface TransferFormData {
 }
 
 const TransferForm = ({receiverUsername, setReceiverUsername, amount, setAmount}:TransferFormData) => {
+
+    const handlerTransfer=(e: React.SyntheticEvent ) => {
+        e.preventDefault();
+    }
     return (
         <OperationCard title='transfer money' variant='transfer'>
-            <form className='grid grid-cols-[2.5fr_2.5fr_1fr] gap-2'>
+            <form
+                onSubmit={handlerTransfer}
+                className='grid grid-cols-[2.5fr_2.5fr_1fr] gap-2'
+            >
                 <TextInput className='bg-yellow-300/60'
                            placeholder='User'
                            value={receiverUsername}
