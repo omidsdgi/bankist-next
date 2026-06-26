@@ -1,6 +1,6 @@
-import {accounts} from "@/data/mockData";
+import {initialAccounts} from "@/data/mockData";
 
-export const createUsernames = accounts.map(acc => ({
+export const createUsernames = initialAccounts.map(acc => ({
     ...acc,
         username:acc.owner
             .toLowerCase()
