@@ -39,4 +39,4 @@ const account2:Account = {
     locale: 'en-US',
 };
 
-export  const accounts:Account[] = [account1, account2];
+export  const initialAccounts:Account[] = [account1, account2];
