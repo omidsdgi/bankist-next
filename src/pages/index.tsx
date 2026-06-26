@@ -8,7 +8,7 @@ export default function Home() {
     const[currentAccount, setCurrentAccount]=useState<Account|null>(null)
     const [isSorted, setIsSorted] = useState<boolean>(false)
     const [receiverUsername, setReceiverUsername] = useState<string>("")
-    const [amount, setAmount] = useState<string>("")
+    const [transferAmount, setTransferAmount] = useState<string>("")
 
     const displayMovements= isSorted
         ? currentAccount?.movements.slice().sort((a,b)=>b-a)
@@ -23,7 +23,11 @@ export default function Home() {
                         <Balance account={currentAccount} />
                         <div className=' grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8'>
                             <MovementList move={displayMovements} account={currentAccount} />
-                            <OperationPanel receiverUsername={receiverUsername} setReceiverUsername={setReceiverUsername} amount={amount} setAmount={setAmount}/>
+                            <OperationPanel
+                                receiverUsername={receiverUsername}
+                                setReceiverUsername={setReceiverUsername}
+                                transferAmount={transferAmount}
+                                setTransferAmount={setTransferAmount}/>
                         </div>
                         <Summary isSorted={isSorted} setIsSorted={setIsSorted}  account={currentAccount} />
                     </>

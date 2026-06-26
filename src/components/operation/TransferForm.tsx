@@ -6,11 +6,11 @@ import {accounts} from "@/data/mockData";
 interface TransferFormData {
     receiverUsername: string;
     setReceiverUsername: React.Dispatch<React.SetStateAction<string>>;
-    amount: string;
-    setAmount: React.Dispatch<React.SetStateAction<string>>;
+    transferAmount: string;
+    setTransferAmount: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TransferForm = ({receiverUsername, setReceiverUsername, amount, setAmount}:TransferFormData) => {
+const TransferForm = ({receiverUsername, setReceiverUsername, transferAmount, setTransferAmount}:TransferFormData) => {
 
     const handlerTransfer=(e: React.SyntheticEvent ) => {
         e.preventDefault();
@@ -29,8 +29,8 @@ const TransferForm = ({receiverUsername, setReceiverUsername, amount, setAmount}
                 />
                 <NumberInput className='bg-yellow-300/60'
                              placeholder='Amount'
-                             value={amount}
-                             onChange={(e) => setAmount(e.target.value)}
+                             value={transferAmount}
+                             onChange={(e) => setTransferAmount(e.target.value)}
                 />
                 <IconButton />
 
