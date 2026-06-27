@@ -9,7 +9,12 @@ const TransferForm = ({accounts,setAccounts,currentAccount,setCurrentAccount,bal
         e.preventDefault();
         const receiverAccount= getCurrentAccount(accounts, receiverUsername);
 
-
+        if(receiverAccount &&
+            currentAccount &&
+            receiverAccount.username !== currentAccount.username &&
+            +transferAmount > 0 &&
+            +transferAmount <= balance
+        ){}
 
     }
     return (
