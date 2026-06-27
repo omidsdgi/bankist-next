@@ -29,6 +29,8 @@ export default function Home() {
                             <OperationPanel
                                 accounts={accounts}
                                 setAccounts={setAccounts}
+                                currentAccount={currentAccount}
+                                setCurrentAccount={setCurrentAccount}
                                 receiverUsername={receiverUsername}
                                 setReceiverUsername={setReceiverUsername}
                                 transferAmount={transferAmount}
