@@ -1,12 +1,6 @@
 import {CloseForm, LoanForm, TransferForm} from "@/components";
 import React from "react";
-
-interface OperationProps{
-    receiverUsername:string,
-    setReceiverUsername:React.Dispatch<React.SetStateAction<string>>,
-    transferAmount:string,
-    setTransferAmount:React.Dispatch<React.SetStateAction<string>>,
-}
+import {OperationProps} from "@/types/Type";
 
 const OperationPanel = ({receiverUsername, setReceiverUsername, transferAmount, setTransferAmount  }:OperationProps) => {
     return (

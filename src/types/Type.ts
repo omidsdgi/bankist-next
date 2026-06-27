@@ -37,3 +37,9 @@ export interface BalanceProps {
     account:Account;
     balance: number;
 }
+export interface OperationProps{
+    receiverUsername:string,
+    setReceiverUsername:React.Dispatch<React.SetStateAction<string>>,
+    transferAmount:string,
+    setTransferAmount:React.Dispatch<React.SetStateAction<string>>,
+}
