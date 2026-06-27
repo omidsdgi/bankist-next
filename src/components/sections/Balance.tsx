@@ -1,11 +1,8 @@
 import {formatCur} from "@/utility/lib/AccountSummaryUtils";
-import {Account} from "@/types/Type";
+import {BalanceProps} from "@/types/Type";
 import {formatDateTime} from "@/utility/lib/DateUtils";
 
-interface BalanceProps {
-   account:Account;
-   balance: number;
-}
+
 const Balance = ({account, balance}: BalanceProps)  => {
 
     return (

@@ -32,3 +32,8 @@ export interface HeaderProps {
     currentAccount: Account | null;
    setCurrentAccount:React.Dispatch<React.SetStateAction<Account | null>>;
 }
+
+export interface BalanceProps {
+    account:Account;
+    balance: number;
+}
