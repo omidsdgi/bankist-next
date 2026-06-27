@@ -3,11 +3,12 @@ import React from "react";
 import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
 import {TransferFormData} from "@/types/Type";
 
-const TransferForm = ({accounts,setAccounts,currentAccount,setCurrentAccount, receiverUsername, setReceiverUsername, transferAmount, setTransferAmount}:TransferFormData) => {
+const TransferForm = ({accounts,setAccounts,currentAccount,setCurrentAccount,balance, receiverUsername, setReceiverUsername, transferAmount, setTransferAmount}:TransferFormData) => {
 
     const handlerTransfer=(e: React.SyntheticEvent ) => {
         e.preventDefault();
         const receiverAccount= getCurrentAccount(accounts, receiverUsername);
+
 
 
     }

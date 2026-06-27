@@ -42,6 +42,7 @@ export interface OperationProps{
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
     currentAccount:Account
     setCurrentAccount:React.Dispatch<React.SetStateAction<Account | null>>;
+    balance:number,
     receiverUsername:string,
     setReceiverUsername:React.Dispatch<React.SetStateAction<string>>,
     transferAmount:string,
@@ -51,8 +52,9 @@ export interface OperationProps{
 export interface TransferFormData {
     accounts:Account[],
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>,
-    currentAccount:Account
+    currentAccount:Account;
     setCurrentAccount:React.Dispatch<React.SetStateAction<Account | null>>;
+    balance:number;
     receiverUsername: string;
     setReceiverUsername: React.Dispatch<React.SetStateAction<string>>;
     transferAmount: string;

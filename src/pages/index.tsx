@@ -31,6 +31,7 @@ export default function Home() {
                                 setAccounts={setAccounts}
                                 currentAccount={currentAccount}
                                 setCurrentAccount={setCurrentAccount}
+                                balance={balance}
                                 receiverUsername={receiverUsername}
                                 setReceiverUsername={setReceiverUsername}
                                 transferAmount={transferAmount}
