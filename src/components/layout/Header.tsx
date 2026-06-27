@@ -6,18 +6,19 @@ import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
 import {createUsernames} from "@/utility/accounts/CreateUsernames";
 
 
-const Header = ({currentAccount, setCurrentAccount}:HeaderProps) => {
+const Header = ({accounts,currentAccount, setCurrentAccount}:HeaderProps) => {
     const [userName, setUserName]=useState<string>('')
     const [pin, setPin]=useState<string>("")
 
     const handleLogin=(e:React.MouseEvent)=> {
         e.preventDefault()
-        const account= getCurrentAccount(createUsernames, userName)
+
+        const account= getCurrentAccount(createUsernames(accounts), userName)
 
         if (account && account.pin === Number(pin)){
             setCurrentAccount(account);
-        setUserName('');
-        setPin('')
+            setUserName('');
+            setPin('')
         }
     }
     return (

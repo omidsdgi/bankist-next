@@ -1,3 +1,4 @@
+import React from "react";
 
 export type MovementType = "deposit" | "withdrawal";
 export type MovementAmount = number;
@@ -27,6 +28,7 @@ export interface SummaryType{
 }
 
 export interface HeaderProps {
+    accounts: Account[];
     currentAccount: Account | null;
-   setCurrentAccount:(account:Account |null) => void;
+   setCurrentAccount:React.Dispatch<React.SetStateAction<Account | null>>;
 }
