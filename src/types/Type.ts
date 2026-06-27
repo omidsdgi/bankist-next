@@ -43,3 +43,10 @@ export interface OperationProps{
     transferAmount:string,
     setTransferAmount:React.Dispatch<React.SetStateAction<string>>,
 }
+
+export interface TransferFormData {
+    receiverUsername: string;
+    setReceiverUsername: React.Dispatch<React.SetStateAction<string>>;
+    transferAmount: string;
+    setTransferAmount: React.Dispatch<React.SetStateAction<string>>;
+}

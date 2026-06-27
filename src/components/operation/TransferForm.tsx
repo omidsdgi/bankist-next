@@ -1,13 +1,7 @@
 import {IconButton, NumberInput, OperationCard, TextInput} from "@/components";
 import React from "react";
 import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
-
-interface TransferFormData {
-    receiverUsername: string;
-    setReceiverUsername: React.Dispatch<React.SetStateAction<string>>;
-    transferAmount: string;
-    setTransferAmount: React.Dispatch<React.SetStateAction<string>>;
-}
+import {TransferFormData} from "@/types/Type";
 
 const TransferForm = ({receiverUsername, setReceiverUsername, transferAmount, setTransferAmount}:TransferFormData) => {
 
