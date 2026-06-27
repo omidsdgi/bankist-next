@@ -27,6 +27,8 @@ export default function Home() {
                         <div className=' grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8'>
                             <MovementList move={displayMovements} account={currentAccount} />
                             <OperationPanel
+                                accounts={accounts}
+                                setAccounts={setAccounts}
                                 receiverUsername={receiverUsername}
                                 setReceiverUsername={setReceiverUsername}
                                 transferAmount={transferAmount}

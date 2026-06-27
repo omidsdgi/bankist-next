@@ -38,6 +38,8 @@ export interface BalanceProps {
     balance: number;
 }
 export interface OperationProps{
+    accounts:Account[],
+    setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
     receiverUsername:string,
     setReceiverUsername:React.Dispatch<React.SetStateAction<string>>,
     transferAmount:string,
@@ -45,6 +47,8 @@ export interface OperationProps{
 }
 
 export interface TransferFormData {
+    accounts:Account[],
+    setAccounts:React.Dispatch<React.SetStateAction<Account[]>>,
     receiverUsername: string;
     setReceiverUsername: React.Dispatch<React.SetStateAction<string>>;
     transferAmount: string;
