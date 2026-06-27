@@ -2,9 +2,11 @@ import {Header, MovementList, OperationPanel, Summary,} from "@/components";
 import Balance from "@/components/sections/Balance";
 import {useState} from "react";
 import {Account} from "@/types/Type";
+import {initialAccounts} from "@/data/mockData";
 
 
 export default function Home() {
+    const [accounts, setAccounts] = useState<Account | null>(initialAccounts);
     const[currentAccount, setCurrentAccount]=useState<Account|null>(null)
     const [isSorted, setIsSorted] = useState<boolean>(false)
     const [receiverUsername, setReceiverUsername] = useState<string>("")
