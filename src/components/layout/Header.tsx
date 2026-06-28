@@ -1,31 +1,24 @@
 import Image from "next/image";
-import React, {useMemo,useState} from "react";
+import React, {useState} from "react";
 import {IconButton, ThemeToggle} from "@/components";
 import { HeaderProps} from "@/types/Type";
 import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
-import {createUsernames} from "@/utility/accounts/CreateUsernames";
 
 
 const Header = ({
                     accounts,
                     currentAccount,
-                    setCurrentAccount
+                    setCurrentUsername
                 }:HeaderProps) => {
     const [userName, setUserName]=useState<string>('')
     const [pin, setPin]=useState<string>("")
 
-    const accountsWithUsernames =useMemo(
-        ()=>createUsernames(accounts),
-        [accounts]
-    )
-
-    const handleLogin=(e:React.SubmitEvent<HTMLFormElement>)=> {
+     const handleLogin=(e:React.SubmitEvent<HTMLFormElement>)=> {
         e.preventDefault()
-
-        const account= getCurrentAccount(accountsWithUsernames, userName)
+        const account= getCurrentAccount(accounts, userName)
 
         if (account && account.pin === Number(pin)){
-            setCurrentAccount(account);
+            setCurrentUsername(account.username ?? null);
             setUserName('');
             setPin('')
         }
