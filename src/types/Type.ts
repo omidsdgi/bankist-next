@@ -28,9 +28,9 @@ export interface SummaryType{
 }
 
 export interface HeaderProps {
-    accounts: Account[];
+     accounts: Account[];
     currentAccount: Account | null;
-   setCurrentAccount:React.Dispatch<React.SetStateAction<Account | null>>;
+    setCurrentUsername:React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export interface BalanceProps {
@@ -41,12 +41,7 @@ export interface OperationProps{
     accounts:Account[],
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
     currentAccount:Account
-    setCurrentAccount:React.Dispatch<React.SetStateAction<Account | null>>;
-    balance:number,
-    receiverUsername:string,
-    setReceiverUsername:React.Dispatch<React.SetStateAction<string>>,
-    transferAmount:string,
-    setTransferAmount:React.Dispatch<React.SetStateAction<string>>,
+    balance:number
 }
 
 export interface TransferFormData {
@@ -54,9 +49,6 @@ export interface TransferFormData {
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>,
     currentAccount:Account;
     setCurrentAccount:React.Dispatch<React.SetStateAction<Account | null>>;
-    balance:number;
-    receiverUsername: string;
-    setReceiverUsername: React.Dispatch<React.SetStateAction<string>>;
-    transferAmount: string;
-    setTransferAmount: React.Dispatch<React.SetStateAction<string>>;
+    setCurrentUsername:React.Dispatch<React.SetStateAction<string | null>>;
+    balance:number
 }
