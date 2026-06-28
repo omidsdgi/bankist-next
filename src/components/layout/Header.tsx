@@ -1,19 +1,28 @@
 import Image from "next/image";
-import React, {useState} from "react";
+import React, {useMemo,useState} from "react";
 import {IconButton, ThemeToggle} from "@/components";
 import { HeaderProps} from "@/types/Type";
 import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
 import {createUsernames} from "@/utility/accounts/CreateUsernames";
 
 
-const Header = ({accounts,currentAccount, setCurrentAccount}:HeaderProps) => {
+const Header = ({
+                    accounts,
+                    currentAccount,
+                    setCurrentAccount
+                }:HeaderProps) => {
     const [userName, setUserName]=useState<string>('')
     const [pin, setPin]=useState<string>("")
 
-    const handleLogin=(e:React.MouseEvent)=> {
+    const accountsWithUsernames =useMemo(
+        ()=>createUsernames(accounts),
+        [accounts]
+    )
+
+    const handleLogin=(e:React.SubmitEvent<HTMLFormElement>)=> {
         e.preventDefault()
 
-        const account= getCurrentAccount(createUsernames(accounts), userName)
+        const account= getCurrentAccount(accountsWithUsernames, userName)
 
         if (account && account.pin === Number(pin)){
             setCurrentAccount(account);
@@ -26,11 +35,14 @@ const Header = ({accounts,currentAccount, setCurrentAccount}:HeaderProps) => {
 
             <h1 className='text-xl font-medium'>
                 {currentAccount
-                    ? `Welcome back, ${currentAccount?.owner.split(" ")[0]}`
+                    ? `Welcome back, ${currentAccount.owner.split(" ")[0]}`
                     : "Log in to get started"}
             </h1>
             <Image src='/logo.png' alt="Bankist logo" width={52.5} height={52.5}/>
-            <form className='grid grid-cols-[2fr_2fr_1fr] gap-4'>
+            <form
+                className='grid grid-cols-[2fr_2fr_1fr] gap-4'
+                onSubmit={handleLogin}
+            >
                 <input
                     type='text'
                     placeholder='user'
@@ -44,7 +56,7 @@ const Header = ({accounts,currentAccount, setCurrentAccount}:HeaderProps) => {
                     onChange={(e)=>setPin(e.target.value)}
                     maxLength={4}
                     className='login--input '/>
-                <IconButton onClick={handleLogin}/>
+                <IconButton />
             </form>
             <ThemeToggle />
         </header>
