@@ -48,7 +48,5 @@ export interface TransferFormData {
     accounts:Account[],
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>,
     currentAccount:Account;
-    setCurrentAccount:React.Dispatch<React.SetStateAction<Account | null>>;
-    setCurrentUsername:React.Dispatch<React.SetStateAction<string | null>>;
     balance:number
 }
