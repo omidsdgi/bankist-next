@@ -34,15 +34,15 @@ const TransferForm = ({
                 if (acc.username === currentAccount.username) {
                     return {
                         ...acc,
-                        movements: [...acc.movements, -amount],
-                        movementsDates: [...acc.movementsDates, today],
+                        movements: [-amount, ...acc.movements ],
+                        movementsDates: [today, ...acc.movementsDates ],
                     };
                 }
                 if (acc.username === receiverAccount.username) {
                     return {
                         ...acc,
-                        movements: [...acc.movements, +amount],
-                        movementsDates: [...acc.movementsDates, today],
+                        movements: [ +amount, ...acc.movements],
+                        movementsDates: [today, ...acc.movementsDates ],
                     };
                 }
                 return acc;
