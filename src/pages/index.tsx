@@ -17,10 +17,6 @@ export default function Home() {
 
     const balance=currentAccount?.movements.reduce((acc,mov)=> acc + mov ,0) ?? 0
 
-    const displayMovements=isSorted
-        ? currentAccount?.movements.slice().sort((a,b)=>b-a)
-        : currentAccount?.movements
-
     return (
         <>
             <Header
@@ -33,7 +29,7 @@ export default function Home() {
                     <>
                         <Balance account={currentAccount} balance={balance} />
                         <div className=' grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8'>
-                            <MovementList move={displayMovements} account={currentAccount} />
+                            <MovementList isSorted={isSorted} account={currentAccount} />
                             <OperationPanel
                                 accounts={accountWithUsernames}
                                 setAccounts={setAccounts}
