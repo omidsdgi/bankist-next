@@ -11,7 +11,7 @@ const OperationPanel = ({accounts,setAccounts,currentAccount,balance}:OperationP
                 currentAccount={currentAccount}
                 balance={balance}
                />
-            <LoanForm/>
+            <LoanForm currentAccount={currentAccount} setAccounts={setAccounts} />
             <CloseForm/>
         </div>
     );
