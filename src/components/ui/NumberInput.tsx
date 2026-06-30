@@ -15,7 +15,7 @@ const NumberInput = ({className="", placeholder, value, onChange}:NumberProps) =
             placeholder={placeholder}
             value={value}
             onChange={onChange}
-            className={`w-full text-xl text-center rounded-lg px-4 py-1 outline-none focus:border-gray-300 transition-all ${className}`}   />
+            className={`w-full text-xl text-center dark:text-gray-700 rounded-lg px-4 py-1 outline-none focus:border-gray-300 transition-all ${className}`}   />
     );
 };
 
