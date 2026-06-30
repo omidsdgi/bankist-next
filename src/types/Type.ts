@@ -50,3 +50,8 @@ export interface TransferFormData {
     currentAccount:Account;
     balance:number
 }
+
+export interface LoanFormData {
+    currentAccount:Account;
+    setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
+}
