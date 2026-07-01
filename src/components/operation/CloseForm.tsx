@@ -1,6 +1,9 @@
 import {IconButton, OperationCard, TextInput} from "@/components";
+import {useState} from "react";
 
-const CloseForm = () => {
+const CloseForm = ({currentAccount, accounts,setAccounts}) => {
+    const [closeUsername, setCloseUsername] = useState<string>("");
+    const [closePine,setClosePin] = useState<string>("");
     return (
         <OperationCard title='close account' variant='close'>
             <form className='grid grid-cols-[2.5fr_2.5fr_1fr] gap-2 '>
