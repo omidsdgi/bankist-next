@@ -1,7 +1,8 @@
 import {IconButton, OperationCard, TextInput} from "@/components";
 import {useState} from "react";
+import {CloseAccountProps} from "@/types/Type";
 
-const CloseForm = ({currentAccount, accounts,setAccounts}) => {
+const CloseForm = ({currentAccount, accounts,setAccounts}:CloseAccountProps) => {
     const [closeUsername, setCloseUsername] = useState<string>("");
     const [closePine,setClosePin] = useState<string>("");
     return (

@@ -55,3 +55,9 @@ export interface LoanFormData {
     currentAccount:Account;
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
 }
+
+export interface CloseAccountProps {
+    account:Account;
+    setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
+    currentAccount:Account;
+}
