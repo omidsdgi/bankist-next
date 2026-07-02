@@ -1,13 +1,32 @@
 import {IconButton, OperationCard, TextInput} from "@/components";
-import {useState} from "react";
+import React, {useState} from "react";
 import {CloseAccountProps} from "@/types/Type";
 
-const CloseForm = ({currentAccount, accounts,setAccounts}:CloseAccountProps) => {
+const CloseForm = ({currentAccount, setAccounts}:CloseAccountProps) => {
     const [closeUsername, setCloseUsername] = useState<string>("");
-    const [closePine,setClosePin] = useState<string>("");
+    const [closePin,setClosePin] = useState<string>("");
+
+
+    const handleClose = (e:React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if(!currentAccount) return;
+        if (closeUsername !== currentAccount.username ||
+            Number(closePin) !== currentAccount.pin
+        ) {
+            return
+        }
+        setAccounts(prev=>
+            prev.filter(account=>account.username !== currentAccount.username)
+           )
+        setClosePin('')
+        setCloseUsername('')
+    }
     return (
         <OperationCard title='close account' variant='close'>
-            <form className='grid grid-cols-[2.5fr_2.5fr_1fr] gap-2 '>
+            <form
+                onSubmit={handleClose}
+                className='grid grid-cols-[2.5fr_2.5fr_1fr] gap-2 '>
                 <TextInput
                     placeholder='User'
                     value={closeUsername}
@@ -15,7 +34,7 @@ const CloseForm = ({currentAccount, accounts,setAccounts}:CloseAccountProps) => 
                     className='bg-red-200/70'/>
                 <TextInput type='password'
                            placeholder='PIN'
-                           value={closePine}
+                           value={closePin}
                            onChange={(e) => setClosePin(e.target.value)}
                            className='bg-red-200/70'/>
                 <IconButton type='submit'/>
