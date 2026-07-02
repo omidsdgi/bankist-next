@@ -7,7 +7,7 @@ const CloseForm = ({currentAccount, setAccounts}:CloseAccountProps) => {
     const [closePin,setClosePin] = useState<string>("");
 
 
-    const handleClose = (e:React.FormEvent<HTMLFormElement>) => {
+    const handleClose = (e:React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if(!currentAccount) return;

@@ -1,6 +1,6 @@
 import {IconButton, NumberInput, OperationCard, TextInput} from "@/components";
 import React, {useState} from "react";
-import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
+import {getCurrentAccount} from "@/utility/GetCurrentAccount";
 import {TransferFormData} from "@/types/Type";
 
 
@@ -16,7 +16,7 @@ const TransferForm = ({
     const handlerTransfer=(e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!currentAccount) return null
+        if (!currentAccount) return
 
         const amount = Number(transferAmount);
         const receiverAccount = getCurrentAccount(accounts, receiverUsername);
@@ -28,7 +28,7 @@ const TransferForm = ({
             amount <= 0 ||
             amount > balance
         ){
-            return null
+            return
         }
             setAccounts(prev => prev.map(acc => {
                 if (acc.username === currentAccount.username) {

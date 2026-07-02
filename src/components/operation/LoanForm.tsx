@@ -5,7 +5,7 @@ import {LoanFormData} from "@/types/Type";
 const LoanForm = ({currentAccount,setAccounts}:LoanFormData) => {
     const [loan, setLoan] = useState<string>('')
 
-    const handleLoan = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleLoan = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         if (!currentAccount) return;
@@ -13,18 +13,19 @@ const LoanForm = ({currentAccount,setAccounts}:LoanFormData) => {
         const today = new Date().toISOString();
         const amount = Number(loan)
 
-        if (amount > 0 && currentAccount.movements.some(mov => amount <= mov * 0.1))
+        if (amount > 0 && currentAccount.movements.some(mov => amount <= mov * 0.1)) {
             setAccounts(prev => prev.map(acc => {
                 if (acc.username === currentAccount.username) {
                     return {
                         ...acc,
                         movements: [amount, ...acc.movements],
-                        movementsDates: [today, ...acc.movementsDates ],
+                        movementsDates: [today, ...acc.movementsDates],
                     }
                 }
                 return acc;
             }))
-        setLoan('')
+            setLoan('')
+        }
     }
 
     return (
