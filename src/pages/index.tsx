@@ -4,23 +4,25 @@ import {useState} from "react";
 import {Account} from "@/types/Type";
 import {initialAccounts} from "@/data/mockData";
 import {createUsernames} from "@/utility/accounts/CreateUsernames";
+import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
 
 
 export default function Home() {
     const [accounts, setAccounts] = useState<Account[]>(createUsernames(initialAccounts));
     const[currentUsername, setCurrentUsername]=useState<string |null>(null)
     const [isSorted, setIsSorted] = useState<boolean>(false)
-    const accountWithUsernames =accounts
-    const currentAccount=accountWithUsernames.find(
-        acc =>acc.username === currentUsername
-    ) ?? null;
+
+    const currentAccount= currentUsername
+        ? getCurrentAccount(accounts, currentUsername) ?? null
+        :null
+
 
     const balance=currentAccount?.movements.reduce((acc,mov)=> acc + mov ,0) ?? 0
 
     return (
         <>
             <Header
-                accounts={accountWithUsernames}
+                accounts={accounts}
                 currentAccount={currentAccount}
                 setCurrentUsername={setCurrentUsername}
             />
@@ -31,7 +33,7 @@ export default function Home() {
                         <div className=' grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8'>
                             <MovementList isSorted={isSorted} account={currentAccount} />
                             <OperationPanel
-                                accounts={accountWithUsernames}
+                                accounts={accounts}
                                 setAccounts={setAccounts}
                                 currentAccount={currentAccount}
                                 balance={balance}
