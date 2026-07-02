@@ -1,6 +1,6 @@
 import {Account} from "@/types/Type";
 
-export const formatDateTime=function (account:Account):string {
+export const formatDateTime= (account:Account):string=> {
 const now= new Date();
 const options: Intl.DateTimeFormatOptions={
     hour:'numeric',
@@ -15,7 +15,7 @@ return  new Intl.DateTimeFormat(
      options
  ).format(now)
 }
-export const formatMovementDate= function (date:string):string {
+export const formatMovementDate= (date:string):string => {
     const calcDaysPassed=(date1:Date,date2:Date):number=>Math.round(Math.abs(date2.getTime()-date1.getTime())/(1000 * 60 * 60 * 24))
         const daysPassed=calcDaysPassed(new Date(),new Date(date))
 
