@@ -1,23 +1,27 @@
 import {Account} from "@/types/Type";
 
 export const formatDateTime= (account:Account):string=> {
-const now= new Date();
-const options: Intl.DateTimeFormatOptions={
-    hour:'numeric',
-    minute:'numeric',
-    weekday:'long',
-    day:'numeric',
-    year:'numeric',
-    month:'long',
+    const now= new Date();
+    const options: Intl.DateTimeFormatOptions={
+        hour:'numeric',
+        minute:'numeric',
+        weekday:'long',
+        day:'numeric',
+        year:'numeric',
+        month:'long',
+    }
+    return  new Intl.DateTimeFormat(
+        account.locale,
+        options
+    ).format(now)
 }
-return  new Intl.DateTimeFormat(
-     account.locale,
-     options
- ).format(now)
-}
+const calcDaysPassed=(date1:Date,date2:Date):number=>
+    Math.round(
+        Math.abs(date2.getTime()-date1.getTime())/(1000 * 60 * 60 * 24)
+    )
+
 export const formatMovementDate= (date:string):string => {
-    const calcDaysPassed=(date1:Date,date2:Date):number=>Math.round(Math.abs(date2.getTime()-date1.getTime())/(1000 * 60 * 60 * 24))
-        const daysPassed=calcDaysPassed(new Date(),new Date(date))
+    const daysPassed=calcDaysPassed(new Date(),new Date(date))
 
     if(daysPassed === 0) return 'Today'
     if(daysPassed === 1) return "Yesterday"
