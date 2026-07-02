@@ -15,16 +15,22 @@ export interface Account {
     username?: string
 }
 
-export interface Movement{
-    id: string;
-    type: MovementType;
-    date: MovementDate;
-    value: MovementAmount;
+export interface MovementListProps {
+    isSorted: boolean;
+    account:Account
 }
-export interface SummaryType{
-    totalIn: number;
-    totalOut: number;
-    interest: number;
+export interface MovementItemProps {
+    index:number;
+    amount:number
+    date:string;
+    locale:string;
+    currency:string;
+}
+
+export interface SummaryProps {
+    isSorted:boolean;
+    setIsSorted:(isSorted:boolean) => void;
+    account:Account
 }
 
 export interface HeaderProps {
@@ -57,7 +63,6 @@ export interface LoanFormData {
 }
 
 export interface CloseAccountProps {
-    account:Account;
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
     currentAccount:Account;
 }

@@ -1,13 +1,6 @@
 import {formatMovementDate} from "@/utility/lib/DateUtils";
 import {formatCur} from "@/utility/lib/AccountSummaryUtils";
-
-interface MovementItemProps {
-    index:number;
-    amount:number
-    date:string;
-    locale:string;
-    currency:string;
-}
+import {MovementItemProps} from "@/types/Type";
 
 const MovementItem = ({amount, date, locale, currency}:MovementItemProps) => {
     return (

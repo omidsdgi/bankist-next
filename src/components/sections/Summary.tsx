@@ -1,11 +1,5 @@
-import {Account} from "@/types/Type";
+import {SummaryProps} from "@/types/Type";
 import {accountSummaryUtils} from "@/utility/lib/AccountSummaryUtils";
-
-interface SummaryProps {
-    isSorted:boolean;
-    setIsSorted:(isSorted:boolean) => void;
-    account:Account
-}
 
 const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
     const {totalIn, totalOut, interest}=accountSummaryUtils(account)

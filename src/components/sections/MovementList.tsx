@@ -1,10 +1,6 @@
 import MovementItem from "./MovementItem";
-import {Account} from "@/types/Type";
+import { MovementListProps} from "@/types/Type";
 
-interface MovementListProps {
-    isSorted: boolean;
-    account:Account
-}
 
 const MovementList=({isSorted, account}: MovementListProps)=>{
     const transactions= account.movements.map((amount, index)=>({
