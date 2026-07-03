@@ -1,14 +1,7 @@
-import React, {HTMLInputTypeAttribute} from "react";
+import {BaseInputProps} from "@/types/Type";
 
-interface InputProps {
-    className?: string;
-    type?: HTMLInputTypeAttribute;
-    placeholder?: string;
-    value?: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
 
-const TextInput = ({className="", type='text', placeholder,value, onChange}:InputProps) => {
+const TextInput = ({className="", type='text', placeholder,value, onChange}:BaseInputProps) => {
     return (
         <input
             type={type}

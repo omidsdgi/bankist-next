@@ -1,16 +1,9 @@
-import React from "react";
+import {BaseInputProps} from "@/types/Type";
 
-interface NumberProps {
-    placeholder?: string ;
-    className?: string ;
-    value?: string ;
-    onChange?: (e:React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-const NumberInput = ({className="", placeholder, value, onChange}:NumberProps) => {
+const NumberInput = ({type='number',className="", placeholder, value, onChange}:BaseInputProps) => {
     return (
         <input
-            type='number'
+            type={type}
             placeholder={placeholder}
             value={value}
             onChange={onChange}

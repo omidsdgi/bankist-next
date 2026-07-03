@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEventHandler, HTMLInputTypeAttribute} from "react";
 
 export type MovementType = "deposit" | "withdrawal";
 export type MovementAmount = number;
@@ -65,4 +65,12 @@ export interface LoanFormData {
 export interface CloseAccountProps {
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
     currentAccount:Account;
+}
+
+export interface BaseInputProps {
+    type:HTMLInputTypeAttribute,
+    className?: string;
+    placeholder?: string;
+    value?: string;
+    onChange?: ChangeEventHandler<HTMLInputElement>
 }
