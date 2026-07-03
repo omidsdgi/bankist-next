@@ -3,8 +3,8 @@ import Balance from "@/components/sections/Balance";
 import {useState} from "react";
 import {Account} from "@/types/Type";
 import {initialAccounts} from "@/data/mockData";
-import {createUsernames} from "@/utility/accounts/CreateUsernames";
-import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
+import {createUsernames} from "@/utility/CreateUsernames";
+import {getCurrentAccount} from "@/utility/GetCurrentAccount";
 
 
 export default function Home() {
