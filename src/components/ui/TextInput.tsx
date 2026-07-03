@@ -1,8 +1,8 @@
-import React from "react";
+import React, {HTMLInputTypeAttribute} from "react";
 
 interface InputProps {
     className?: string;
-    type?: string;
+    type?: HTMLInputTypeAttribute;
     placeholder?: string;
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
