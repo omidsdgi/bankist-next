@@ -29,7 +29,7 @@ export interface MovementItemProps {
 
 export interface SummaryProps {
     isSorted:boolean;
-    setIsSorted:(isSorted:boolean) => void;
+    setIsSorted:React.Dispatch<React.SetStateAction<boolean>>;
     account:Account
 }
 

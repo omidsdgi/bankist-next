@@ -1,5 +1,5 @@
 import {SummaryProps} from "@/types/Type";
-import {accountSummaryUtils} from "@/utility/lib/AccountSummaryUtils";
+import {accountSummaryUtils} from "@/utility/AccountSummaryUtils";
 
 const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
     const {totalIn, totalOut, interest}=accountSummaryUtils(account)
@@ -29,7 +29,7 @@ const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
                 </div>
 
                 <button
-                    onClick={()=> setIsSorted(!isSorted)}
+                    onClick={()=> setIsSorted(prev=>!prev)}
                     className="uppercase transition hover:text-blue-500 ">
                     Sort {isSorted ? '↑' : '↓'}
                 </button>
