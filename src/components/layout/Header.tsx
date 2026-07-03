@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, {useState} from "react";
 import {IconButton, ThemeToggle} from "@/components";
 import { HeaderProps} from "@/types/Type";
-import {getCurrentAccount} from "@/utility/accounts/GetCurrentAccount";
+import {getCurrentAccount} from "@/utility/GetCurrentAccount";
 
 
 const Header = ({

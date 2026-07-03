@@ -1,6 +1,6 @@
-import {formatCur} from "@/utility/lib/AccountSummaryUtils";
+import {formatCur} from "@/utility/AccountSummaryUtils";
 import {BalanceProps} from "@/types/Type";
-import {formatDateTime} from "@/utility/lib/DateUtils";
+import {formatDateTime} from "@/utility/DateUtils";
 
 
 const Balance = ({account, balance}: BalanceProps)  => {
