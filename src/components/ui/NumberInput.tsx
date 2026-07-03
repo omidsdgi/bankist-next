@@ -1,7 +1,6 @@
 import React from "react";
 
 interface NumberProps {
-    type?: number ;
     placeholder?: string ;
     className?: string ;
     value?: string ;
