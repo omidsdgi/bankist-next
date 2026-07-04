@@ -5,7 +5,9 @@ import {setInterval} from "node:timers";
 
 const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
     const {totalIn, totalOut, interest}=accountSummaryUtils(account)
-    const [time, setTime] = useState(10);
+    const [time, setTime] = useState(80);
+    const min= String(Math.trunc(time / 60)).padStart(2, "0");
+    const second = String(Math.trunc(time % 60)).padStart(2, "0");
 
     useEffect(() => {
        const timeOut= setInterval(() => {
@@ -45,7 +47,7 @@ const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
             </div>
 
             <p>
-                {`You will be logged out in ${time}`}
+                {`You will be logged out in ${min}: ${second}`}
                 <span className="font-semibold text-black dark:text-white">
       05:00
     </span>
