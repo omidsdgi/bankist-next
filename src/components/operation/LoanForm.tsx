@@ -14,6 +14,7 @@ const LoanForm = ({currentAccount,setAccounts}:LoanFormData) => {
         const amount = Number(loan)
 
         if (amount > 0 && currentAccount.movements.some(mov => amount <= mov * 0.1)) {
+            setTimeout(function() {
             setAccounts(prev => prev.map(acc => {
                 if (acc.username === currentAccount.username) {
                     return {
@@ -25,6 +26,7 @@ const LoanForm = ({currentAccount,setAccounts}:LoanFormData) => {
                 return acc;
             }))
             setLoan('')
+        },3000)
         }
     }
 
@@ -34,6 +36,7 @@ const LoanForm = ({currentAccount,setAccounts}:LoanFormData) => {
                 onSubmit={handleLoan}
                 className='grid grid-cols-[2.5fr_1fr_2fr] gap-3'>
                 <NumberInput
+                    type="number"
                     className='bg-lime-200/60' placeholder='Amount'
                     value={loan}
                     onChange={(e) => setLoan(e.target.value)}
