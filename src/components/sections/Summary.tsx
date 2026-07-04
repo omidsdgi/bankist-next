@@ -5,15 +5,20 @@ import {setInterval} from "node:timers";
 
 const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
     const {totalIn, totalOut, interest}=accountSummaryUtils(account)
-    const [time, setTime] = useState(80);
+    const [time, setTime] = useState(20);
     const min= String(Math.trunc(time / 60)).padStart(2, "0");
     const second = String(Math.trunc(time % 60)).padStart(2, "0");
 
     useEffect(() => {
-       const timeOut= setInterval(() => {
-        setTime(prevTime => prevTime - 1);
+        const timer= setInterval(() => {
+            setTime(prevTime =>{
+            if (prevTime <= 0) {
+                clearInterval(timer)
+                return 0
+            }
+            return prevTime - 1
+            })
         }, 1000)
-    return ()=> clearInterval(timeOut)
     },[])
     return (
         <footer className="grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8 text-xs md:text-sm text-gray-600 dark:text-gray-400">
