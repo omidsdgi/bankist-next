@@ -28,6 +28,7 @@ const CloseForm = ({currentAccount, setAccounts}:CloseAccountProps) => {
                 onSubmit={handleClose}
                 className='grid grid-cols-[2.5fr_2.5fr_1fr] gap-2 '>
                 <TextInput
+                    type='text'
                     placeholder='User'
                     value={closeUsername}
                     onChange={(e) => setCloseUsername(e.target.value)}
