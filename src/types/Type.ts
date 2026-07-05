@@ -28,6 +28,7 @@ export interface MovementItemProps {
 }
 
 export interface SummaryProps {
+    time:string;
     isSorted:boolean;
     setIsSorted:React.Dispatch<React.SetStateAction<boolean>>;
     account:Account
@@ -37,6 +38,7 @@ export interface HeaderProps {
      accounts: Account[];
     currentAccount: Account | null;
     setCurrentUsername:React.Dispatch<React.SetStateAction<string | null>>;
+    restLogoutTime:()=>void
 }
 
 export interface BalanceProps {
