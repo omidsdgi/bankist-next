@@ -1,25 +1,9 @@
 import {SummaryProps} from "@/types/Type";
 import {accountSummaryUtils} from "@/utility/AccountSummaryUtils";
-import {useEffect, useState} from "react";
-import {setInterval} from "node:timers";
 
-const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
+const Summary = ({isSorted, setIsSorted,account, time}:SummaryProps) => {
     const {totalIn, totalOut, interest}=accountSummaryUtils(account)
-    const [time, setTime] = useState(20);
-    const min= String(Math.trunc(time / 60)).padStart(2, "0");
-    const second = String(Math.trunc(time % 60)).padStart(2, "0");
 
-    useEffect(() => {
-        const timer= setInterval(() => {
-            setTime(prevTime =>{
-            if (prevTime <= 0) {
-                clearInterval(timer)
-                return 0
-            }
-            return prevTime - 1
-            })
-        }, 1000)
-    },[])
     return (
         <footer className="grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8 text-xs md:text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center  justify-between flex-1 ">
@@ -52,7 +36,7 @@ const Summary = ({isSorted, setIsSorted,account}:SummaryProps) => {
             </div>
 
             <p>
-                {`You will be logged out in ${min}: ${second}`}
+                {`You will be logged out in ${time}`}
                 <span className="font-semibold text-black dark:text-white">
       05:00
     </span>
