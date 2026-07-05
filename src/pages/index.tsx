@@ -23,7 +23,7 @@ export default function Home() {
     const showTime=formatTimer(time)
 
     useEffect(() => {
-       
+        if(!currentAccount) return
         const timer= setInterval(() => {
             setTime(prevTime =>{
                 if (prevTime <= 1) {
