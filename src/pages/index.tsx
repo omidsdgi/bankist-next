@@ -1,16 +1,18 @@
 import {Header, MovementList, OperationPanel, Summary,} from "@/components";
 import Balance from "@/components/sections/Balance";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Account} from "@/types/Type";
 import {initialAccounts} from "@/data/mockData";
 import {createUsernames} from "@/utility/CreateUsernames";
 import {getCurrentAccount} from "@/utility/GetCurrentAccount";
+import {formatTimer} from "@/utility/formatTimer";
 
 
 export default function Home() {
     const [accounts, setAccounts] = useState<Account[]>(createUsernames(initialAccounts));
     const[currentUsername, setCurrentUsername]=useState<string |null>(null)
     const [isSorted, setIsSorted] = useState<boolean>(false)
+    const [time, setTime] = useState(20);
 
     const currentAccount= currentUsername
         ? getCurrentAccount(accounts, currentUsername) ?? null
@@ -18,6 +20,22 @@ export default function Home() {
 
 
     const balance=currentAccount?.movements.reduce((acc,mov)=> acc + mov ,0) ?? 0
+    const showTime=formatTimer(time)
+
+    useEffect(() => {
+       
+        const timer= setInterval(() => {
+            setTime(prevTime =>{
+                if (prevTime <= 1) {
+                    clearInterval(timer)
+                    setCurrentUsername(null)
+                    return 0
+                }
+                return prevTime - 1
+            })
+        }, 1000)
+        return ()=> clearInterval(timer)
+    },[currentAccount])
 
     return (
         <>
@@ -27,7 +45,7 @@ export default function Home() {
                 setCurrentUsername={setCurrentUsername}
             />
             <main className= "max-w-5xl mx-auto mt-12 opacity-100 ">
-                {currentAccount &&(
+                {currentAccount && (
                     <>
                         <Balance account={currentAccount} balance={balance} />
                         <div className=' grid grid-cols-1  sm:grid-cols-[4fr_3fr] gap-6 mt-8'>
@@ -37,9 +55,9 @@ export default function Home() {
                                 setAccounts={setAccounts}
                                 currentAccount={currentAccount}
                                 balance={balance}
-                          />
+                            />
                         </div>
-                        <Summary isSorted={isSorted} setIsSorted={setIsSorted}  account={currentAccount} />
+                        <Summary isSorted={isSorted} setIsSorted={setIsSorted}  account={currentAccount} time={showTime} />
                     </>
                 )}
             </main>
