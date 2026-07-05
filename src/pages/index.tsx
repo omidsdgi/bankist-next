@@ -9,10 +9,11 @@ import {formatTimer} from "@/utility/formatTimer";
 
 
 export default function Home() {
+    const INITIAL_LOGOUT_TIME =70
     const [accounts, setAccounts] = useState<Account[]>(createUsernames(initialAccounts));
     const[currentUsername, setCurrentUsername]=useState<string |null>(null)
     const [isSorted, setIsSorted] = useState<boolean>(false)
-    const [time, setTime] = useState(20);
+    const [time, setTime] = useState(0);
 
     const currentAccount= currentUsername
         ? getCurrentAccount(accounts, currentUsername) ?? null
@@ -22,8 +23,13 @@ export default function Home() {
     const balance=currentAccount?.movements.reduce((acc,mov)=> acc + mov ,0) ?? 0
     const showTime=formatTimer(time)
 
+    const restLogoutTime=()=>{
+        setTime(INITIAL_LOGOUT_TIME)
+    }
+
     useEffect(() => {
         if(!currentAccount) return
+
         const timer= setInterval(() => {
             setTime(prevTime =>{
                 if (prevTime <= 1) {
@@ -43,6 +49,7 @@ export default function Home() {
                 accounts={accounts}
                 currentAccount={currentAccount}
                 setCurrentUsername={setCurrentUsername}
+                restLogoutTime={restLogoutTime}
             />
             <main className= "max-w-5xl mx-auto mt-12 opacity-100 ">
                 {currentAccount && (
@@ -57,7 +64,7 @@ export default function Home() {
                                 balance={balance}
                             />
                         </div>
-                        <Summary isSorted={isSorted} setIsSorted={setIsSorted}  account={currentAccount} time={showTime} />
+                        <Summary isSorted={isSorted} setIsSorted={setIsSorted}  account={currentAccount} time={showTime}  />
                     </>
                 )}
             </main>

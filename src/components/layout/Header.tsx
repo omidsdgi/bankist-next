@@ -8,7 +8,8 @@ import {getCurrentAccount} from "@/utility/GetCurrentAccount";
 const Header = ({
                     accounts,
                     currentAccount,
-                    setCurrentUsername
+                    setCurrentUsername,
+                    restLogoutTime
                 }:HeaderProps) => {
     const [userName, setUserName]=useState<string>('')
     const [pin, setPin]=useState<string>("")
@@ -19,6 +20,7 @@ const Header = ({
 
         if (account && account.pin === Number(pin)){
             setCurrentUsername(account.username ?? null);
+            restLogoutTime()
             setUserName('');
             setPin('')
         }
