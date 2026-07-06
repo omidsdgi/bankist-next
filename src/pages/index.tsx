@@ -10,10 +10,13 @@ import {formatTimer} from "@/utility/formatTimer";
 
 export default function Home() {
     const INITIAL_LOGOUT_TIME = 30
+    const Fade_OUT_DURATION = 300;
     const [accounts, setAccounts] = useState<Account[]>(createUsernames(initialAccounts));
     const[currentUsername, setCurrentUsername]=useState<string |null>(null)
     const [isSorted, setIsSorted] = useState<boolean>(false)
     const [time, setTime] = useState(0);
+    const [isVisible, setIsVisible] = useState<boolean>(false)
+
 
     const currentAccount= currentUsername
         ? getCurrentAccount(accounts, currentUsername) ?? null
