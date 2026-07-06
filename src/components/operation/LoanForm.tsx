@@ -2,7 +2,7 @@ import {IconButton, NumberInput, OperationCard} from "@/components";
 import React, {useState} from "react";
 import {LoanFormData} from "@/types/Type";
 
-const LoanForm = ({currentAccount,setAccounts}:LoanFormData) => {
+const LoanForm = ({currentAccount,setAccounts,restLogoutTimer}:LoanFormData) => {
     const [loan, setLoan] = useState<string>('')
 
     const handleLoan = (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -26,6 +26,7 @@ const LoanForm = ({currentAccount,setAccounts}:LoanFormData) => {
                 return acc;
             }))
             setLoan('')
+            restLogoutTimer()
         },3000)
         }
     }

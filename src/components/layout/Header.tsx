@@ -9,7 +9,7 @@ const Header = ({
                     accounts,
                     currentAccount,
                     setCurrentUsername,
-                    restLogoutTime
+                    restLogoutTimer
                 }:HeaderProps) => {
     const [userName, setUserName]=useState<string>('')
     const [pin, setPin]=useState<string>("")
@@ -20,7 +20,7 @@ const Header = ({
 
         if (account && account.pin === Number(pin)){
             setCurrentUsername(account.username ?? null);
-            restLogoutTime()
+            restLogoutTimer()
             setUserName('');
             setPin('')
         }
