@@ -9,7 +9,7 @@ import {formatTimer} from "@/utility/formatTimer";
 
 
 export default function Home() {
-    const INITIAL_LOGOUT_TIME =70
+    const INITIAL_LOGOUT_TIME = 30
     const [accounts, setAccounts] = useState<Account[]>(createUsernames(initialAccounts));
     const[currentUsername, setCurrentUsername]=useState<string |null>(null)
     const [isSorted, setIsSorted] = useState<boolean>(false)
@@ -23,7 +23,7 @@ export default function Home() {
     const balance=currentAccount?.movements.reduce((acc,mov)=> acc + mov ,0) ?? 0
     const showTime=formatTimer(time)
 
-    const restLogoutTime=()=>{
+    const restLogoutTimer=()=>{
         setTime(INITIAL_LOGOUT_TIME)
     }
 
@@ -32,7 +32,7 @@ export default function Home() {
 
         const timer= setInterval(() => {
             setTime(prevTime =>{
-                if (prevTime <= 1) {
+                if (prevTime <= 0) {
                     clearInterval(timer)
                     setCurrentUsername(null)
                     return 0
@@ -49,7 +49,7 @@ export default function Home() {
                 accounts={accounts}
                 currentAccount={currentAccount}
                 setCurrentUsername={setCurrentUsername}
-                restLogoutTime={restLogoutTime}
+                restLogoutTimer={restLogoutTimer}
             />
             <main className= "max-w-5xl mx-auto mt-12 opacity-100 ">
                 {currentAccount && (
@@ -62,6 +62,7 @@ export default function Home() {
                                 setAccounts={setAccounts}
                                 currentAccount={currentAccount}
                                 balance={balance}
+                                restLogoutTimer={restLogoutTimer}
                             />
                         </div>
                         <Summary isSorted={isSorted} setIsSorted={setIsSorted}  account={currentAccount} time={showTime}  />

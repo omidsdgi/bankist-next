@@ -8,7 +8,8 @@ const TransferForm = ({
                           accounts,
                           setAccounts,
                           currentAccount,
-                          balance
+                          balance,
+                          restLogoutTimer
                       }: TransferFormData) => {
     const [receiverUsername, setReceiverUsername] = useState<string>("")
     const [transferAmount, setTransferAmount] = useState<string>("")
@@ -50,6 +51,7 @@ const TransferForm = ({
 
             setReceiverUsername('');
             setTransferAmount('');
+            restLogoutTimer()
         }
     return (
         <OperationCard title='transfer money' variant='transfer'>

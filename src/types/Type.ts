@@ -38,7 +38,7 @@ export interface HeaderProps {
      accounts: Account[];
     currentAccount: Account | null;
     setCurrentUsername:React.Dispatch<React.SetStateAction<string | null>>;
-    restLogoutTime:()=>void
+    restLogoutTimer:()=>void
 }
 
 export interface BalanceProps {
@@ -50,6 +50,7 @@ export interface OperationProps{
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
     currentAccount:Account
     balance:number
+    restLogoutTimer:()=>void
 }
 
 export interface TransferFormData {
@@ -57,11 +58,13 @@ export interface TransferFormData {
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>,
     currentAccount:Account;
     balance:number
+    restLogoutTimer:()=>void
 }
 
 export interface LoanFormData {
     currentAccount:Account;
     setAccounts:React.Dispatch<React.SetStateAction<Account[]>>;
+    restLogoutTimer:()=>void
 }
 
 export interface CloseAccountProps {
@@ -70,7 +73,7 @@ export interface CloseAccountProps {
 }
 
 export interface BaseInputProps {
-    type:HTMLInputTypeAttribute,
+    type?:HTMLInputTypeAttribute,
     className?: string;
     placeholder?: string;
     value?: string;
