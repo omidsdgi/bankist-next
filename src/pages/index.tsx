@@ -9,7 +9,7 @@ import {formatTimer} from "@/utility/formatTimer";
 
 
 export default function Home() {
-    const INITIAL_LOGOUT_TIME = 30
+    const INITIAL_LOGOUT_TIME = 300
     const Fade_OUT_DURATION = 300;
     const [accounts, setAccounts] = useState<Account[]>(createUsernames(initialAccounts));
     const[currentUsername, setCurrentUsername]=useState<string |null>(null)
@@ -59,7 +59,12 @@ export default function Home() {
                 setCurrentUsername={setCurrentUsername}
                 restLogoutTimer={restLogoutTimer}
             />
-            <main className= "max-w-5xl mx-auto mt-12 opacity-100 ">
+            <main className= {`max-w-5xl mx-auto mt-12 opacity-100 transition-all duration-1000
+             ${isVisible
+                ? 'opacity-100 scale-100'
+                : 'opacity-0  scale-80'
+            }
+             `}>
                 {currentAccount && (
                     <>
                         <Balance account={currentAccount} balance={balance} />
