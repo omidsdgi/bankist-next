@@ -58,6 +58,7 @@ export default function Home() {
                 currentAccount={currentAccount}
                 setCurrentUsername={setCurrentUsername}
                 restLogoutTimer={restLogoutTimer}
+                setIsVisible={setIsVisible}
             />
             <main className= {`max-w-5xl mx-auto mt-12 opacity-100 transition-all duration-1000
              ${isVisible

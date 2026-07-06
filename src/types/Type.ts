@@ -39,6 +39,7 @@ export interface HeaderProps {
     currentAccount: Account | null;
     setCurrentUsername:React.Dispatch<React.SetStateAction<string | null>>;
     restLogoutTimer:()=>void
+    setIsVisible:React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface BalanceProps {

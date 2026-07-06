@@ -9,7 +9,8 @@ const Header = ({
                     accounts,
                     currentAccount,
                     setCurrentUsername,
-                    restLogoutTimer
+                    restLogoutTimer,
+                    setIsVisible
                 }:HeaderProps) => {
     const [userName, setUserName]=useState<string>('')
     const [pin, setPin]=useState<string>("")
@@ -21,6 +22,7 @@ const Header = ({
         if (account && account.pin === Number(pin)){
             setCurrentUsername(account.username ?? null);
             restLogoutTimer()
+            setIsVisible(true)
             setUserName('');
             setPin('')
         }
