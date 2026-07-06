@@ -12,7 +12,7 @@ export interface Account {
     movementsDates: MovementDate[];
     currency: string;
     locale:string;
-    username?: string
+    username: string
 }
 
 export interface MovementListProps {
@@ -37,7 +37,7 @@ export interface SummaryProps {
 export interface HeaderProps {
      accounts: Account[];
     currentAccount: Account | null;
-   onLoginSuccess: (username:string | null) => void;
+   onLoginSuccess: (username:string ) => void;
 }
 
 export interface BalanceProps {

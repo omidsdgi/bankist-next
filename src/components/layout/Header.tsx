@@ -18,7 +18,7 @@ const Header = ({
         const account= getCurrentAccount(accounts, userName)
 
         if (account && account.pin === Number(pin)){
-            onLoginSuccess(account.username ?? null)
+            onLoginSuccess(account.username )
             setUserName('');
             setPin('')
         }
