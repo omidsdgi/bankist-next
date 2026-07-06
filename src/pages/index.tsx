@@ -26,7 +26,9 @@ export default function Home() {
     const balance=currentAccount?.movements.reduce((acc,mov)=> acc + mov ,0) ?? 0
     const showTime=formatTimer(time)
 
-    const restLogoutTimer=()=>{
+    const handleLoginSuccess=(username:string) => {
+        setCurrentUsername(username)
+        setIsVisible(true)
         setTime(INITIAL_LOGOUT_TIME)
     }
 
