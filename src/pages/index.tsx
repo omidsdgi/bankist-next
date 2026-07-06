@@ -31,7 +31,9 @@ export default function Home() {
         setIsVisible(true)
         setTime(INITIAL_LOGOUT_TIME)
     }
-
+    const restLogoutTimer=()=>{
+        setTime(INITIAL_LOGOUT_TIME)
+    }
     useEffect(() => {
         if(!currentAccount) return
 
@@ -58,9 +60,7 @@ export default function Home() {
             <Header
                 accounts={accounts}
                 currentAccount={currentAccount}
-                setCurrentUsername={setCurrentUsername}
-                restLogoutTimer={restLogoutTimer}
-                setIsVisible={setIsVisible}
+                onLoginSuccess={handleLoginSuccess}
             />
             <main className= {`max-w-5xl mx-auto mt-12 opacity-100 transition-all duration-1000
              ${isVisible
