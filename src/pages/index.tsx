@@ -37,7 +37,12 @@ export default function Home() {
             setTime(prevTime =>{
                 if (prevTime <= 0) {
                     clearInterval(timer)
-                    setCurrentUsername(null)
+                   setIsVisible(false)
+
+                    setTimeout(()=>{
+                        setCurrentUsername(null)
+                    },Fade_OUT_DURATION)
+                    
                     return 0
                 }
                 return prevTime - 1
